@@ -13,8 +13,8 @@ defmodule FeedRouter do
   end
 
   get "/" do
-      config_path="/home/rakeapp/rake/.config"
-      case File.read config_path do
+      config_path="~/rake/.config"
+      case config_path |> Path.expand |> File.read do
           {:ok, config_json} ->
               case JSEX.decode config_json, [{:labels, :atom}] do
                   {:ok, config} ->
