@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>welcome</title>
+    </head>
+    <body>
+	<h3 style="text-align:center">
+		You have succesfully authorized rake.
+	</h3>
+	<p style="text-align:center">
+		Here is the link to your feed. You can freely share it if you want to.
+	<p style="text-align:center">
+       		<a href="<%= @feed_url %>"><%= @feed_url %></a>
+	</p>
+	<p style ="text-align:center">
+		For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
+		<a href="https://alpha.app.net/chrifpa">@chrifpa</a><br>
+		<a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
+	</p>
+    </body>
+</html>
