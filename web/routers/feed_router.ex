@@ -13,8 +13,8 @@ defmodule FeedRouter do
   end
 
   get "/" do
-      config_path="/home/rakeapp/rake/.config"
-      case File.read config_path do
+      config_path="~/rake/.config"
+      case config_path |> Path.expand |> File.read do
           {:ok, config_json} ->
               case JSEX.decode config_json, [{:labels, :atom}] do
                   {:ok, config} ->
@@ -28,7 +28,7 @@ defmodule FeedRouter do
 
     HTTPotion.start
     token = conn.params[:token]
-    resp = HTTPotion.get "https://alpha-api.app.net/stream/0/posts/stream?count=200&access_token=" <> token
+    resp = HTTPotion.get "https://alpha-api.app.net/stream/0/posts/stream?count=100&access_token=" <> token
     posts = JSEX.decode!(resp.body, [{:labels, :atom}])[:data]
 
     resp = HTTPotion.get "https://alpha-api.app.net/stream/0/users/me?access_token=" <> token
