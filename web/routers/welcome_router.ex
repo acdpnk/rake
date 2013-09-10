@@ -32,10 +32,10 @@ defmodule WelcomeRouter do
 
 
         case :httpc.request(:'post', {url, [], 'application/x-www-form-urlencoded', body}, [], []) do
-            {:ok, {{a,b,'OK'}, _, resp}} ->
+            {:ok, {{_,_,'OK'}, _, resp}} ->
                 resp = to_string resp
                 token = JSEX.decode!(resp, [{:labels, :atom}])[:access_token]
-            {:ok, {{a,b,err}, _, resp}} ->
+            _ ->
                 token = err
         end
 
