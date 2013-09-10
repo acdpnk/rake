@@ -1,0 +1,7 @@
+.config
+/ebin
+/deps
+/tmp/dev
+/tmp/test
+erl_crash.dump
+mix.lock

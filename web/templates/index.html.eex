@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title><%= @title %></title>
+  <link rel="shortcut icon" href="/static/favicon.ico" />
+</head>
+<body>
+  <h3 style="text-align:center">rake alpha</h3>
+  <p style="text-align:center">
+	<strong>rake</strong> scans your stream on <a href="https://alpha.app.net">app.net</a> and generates an rss-feed from all the links it finds.<br>
+
+  </p>
+  <p style="text-align:center">
+    <a href='https://account.app.net/oauth/authenticate?client_id=<%= @client_id%>&response_type=code&redirect_uri=<%= @callback_url %>/welcome&scope=stream' class='adn-button' data-type='authorize_v2' data-width="145" data-height="22" >Authorize with App.net</a><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script><br>
+	An App.net account is required to use rake. You can create an account and sign in by clicking this button.
+  </p>
+</body>
+</html>
