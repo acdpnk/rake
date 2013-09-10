@@ -13,7 +13,7 @@ defmodule ApplicationRouter do
   # forward "/posts", to: PostsRouter
 
   get "/" do
-    config_path="/Users/chrifpa/Projects/rake/.config"
+    config_path="/home/rakeapp/rake/.config"
     case File.read config_path do
         {:ok, config_json} ->
             case JSEX.decode config_json, [{:labels, :atom}] do
