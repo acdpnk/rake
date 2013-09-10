@@ -36,7 +36,7 @@ defmodule WelcomeRouter do
                 resp = to_string resp
                 token = JSEX.decode!(resp, [{:labels, :atom}])[:access_token]
             _ ->
-                token = err
+                token = "error"
         end
 
 
