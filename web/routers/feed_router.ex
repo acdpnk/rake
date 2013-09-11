@@ -74,7 +74,7 @@ defmodule FeedRouter do
         end
 
         if conn.params[:riposte] == "1" do
-          riposte_link = "riposte://post/" <> post[:id]
+          riposte_link = "riposte://x-callback-url/showPostDetail?postID=" <> post[:id]
           clients = clients ++ [[name: "riposte", link: riposte_link]]
         end
 
