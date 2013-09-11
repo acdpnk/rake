@@ -69,7 +69,7 @@ defmodule FeedRouter do
         end
 
         if conn.params[:happy] == "1" do
-          happy_link = "happy://post/" <> post[:id]
+          happy_link = "happy://post?postId=" <> post[:id]
           clients = clients ++ [[name: "hAppy", link: happy_link]]
         end
 
