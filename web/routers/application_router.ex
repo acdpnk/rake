@@ -37,4 +37,6 @@ defmodule ApplicationRouter do
   forward "/welcome", to: WelcomeRouter
 
   forward "/rss", to: FeedRouter
+
+  forward "/opts", to: OptionsRouter
 end

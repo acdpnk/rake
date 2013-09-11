@@ -41,9 +41,11 @@ defmodule WelcomeRouter do
 
 
 
-        feed_url = callback_url <> "/rss?alpha=1&token=" <> token
+        feed_url = callback_url <> "/rss?clients=alpha&token=" <> token
         conn = conn.assign(:feed_url, feed_url)
-        conn = conn.assign(:title, "foo")
+        conn = conn.assign :callback_url, callback_url
+        conn = conn.assign :token, token
+        conn = conn.assign :alpha, "1"
         render conn, "welcome.html"
     end
 end
