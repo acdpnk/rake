@@ -58,24 +58,25 @@ defmodule FeedRouter do
         summary = post[:html]
 
         clients = []
-        if conn.params[:felix] == "1" do
-          felix_link = "felix://post/" <> post[:id]
-          clients = clients ++ [[name: "felix", link: felix_link]]
-        end
 
         if conn.params[:alpha] == "1" do
           alpha_link = post[:canonical_url]
           clients = clients ++ [[name: "alpha", link: alpha_link]]
         end
 
-        if conn.params[:happy] == "1" do
-          happy_link = "happy://post?postId=" <> post[:id]
-          clients = clients ++ [[name: "hAppy", link: happy_link]]
+        if conn.params[:felix] == "1" do
+          felix_link = "felix://post/" <> post[:id]
+          clients = clients ++ [[name: "felix", link: felix_link]]
         end
 
         if conn.params[:riposte] == "1" do
           riposte_link = "riposte://x-callback-url/showPostDetail?postID=" <> post[:id]
           clients = clients ++ [[name: "riposte", link: riposte_link]]
+        end
+
+        if conn.params[:happy] == "1" do
+          happy_link = "happy://post?postId=" <> post[:id]
+          clients = clients ++ [[name: "hAppy", link: happy_link]]
         end
 
 
