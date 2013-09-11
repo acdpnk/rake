@@ -8,6 +8,13 @@
   <%= lc item inlist @items do %>
   <%= if item != nil do %>
   <item>
+    <title>Update Notice</title>
+    <link>https://rakeapp.tucana.uberspace.de</link>
+    <description>
+      Hello my fabulous testers, &lt;a href=&quot;http://alpha.app.net/chrifpa&quot;&gt;@chrifpa&lt;/a&gt; here. &lt;a href=&quot;https://rakeapp.tucana.uberspace.de&quot;&gt;rake&lt;/a&gt; just received a feature update. You can now configure which &quot;open in&quot; links you want to have in your feed. At the moment there are options for &lt;a href=&quot;http://tigerbears.com/felix/&quot;&gt;felix&lt;/a&gt;, &lt;a href=&quot;http://dasdom.de/Dominik_Hauser_Development/hAppy.html&quot;&gt;hAppy&lt;/a&gt; and &lt;a href=&quot;http://riposteapp.net&quot;&gt;riposte&lt;/a&gt; (and, of course, alpha). If you have a client you want to see in this list, drop me a note and I'll see what i can do.&lt;br&gt;Regards, @chrifpa
+    </description>
+  </item>
+  <item>
     <title><%= item[:title] %></title>
     <link><%= item[:link] %></link>
     <description>
