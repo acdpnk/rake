@@ -3,6 +3,30 @@
     <head>
         <title>welcome</title>
     </head>
+
+    <style>
+    .options{
+        margin:auto;
+        width:280px;
+        padding:5px 20px 30px;
+        background-color:#C9BDC1;
+    }
+
+    .footer{
+        margin:auto;
+        width:100%;
+        background-color:#D0D0D0;
+        text-align:center;
+        position:fixed;
+        bottom:0;
+        left:0;
+    }
+
+    h2{
+        padding-left:5px
+    }
+    </style>
+
     <body>
 	<h3 style="text-align:center">
 		You have succesfully authorized rake.
@@ -10,12 +34,46 @@
 	<p style="text-align:center">
 		Here is the link to your feed. You can freely share it if you want to.
 	<p style="text-align:center">
-       		<a href="<%= @feed_url %>"><%= @feed_url %></a>
+       		<a href="<%= @callback_url %>/rss?token=<%= @token %><%= if @alpha == "1" do %>&alpha=1<% end %><%=  if @felix == "1" do %>&felix=1<% end %><%=  if @happy == "1" do %>&happy=1<% end %><%=  if @riposte == "1" do %>&riposte=1<% end %>"><%= @callback_url %>/rss?token=<%= @token %><%= if @alpha == "1" do %>&alpha=1<% end %><%=  if @felix == "1" do %>&felix=1<% end %><%=  if @happy == "1" do %>&happy=1<% end %><%=  if @riposte == "1" do %>&riposte=1<% end %></a>
 	</p>
-	<p style ="text-align:center">
-		For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
-		<a href="https://alpha.app.net/chrifpa">@chrifpa</a><br>
-		<a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
-	</p>
+
+
+    <div class="options">
+        <h2>Options</h2>
+        <form action="<%= @callback_url %>/opts">
+        <input type="hidden" name="token" value="<%= @token %>">
+        <input type="hidden" name="callback_url" value="<%= @callback_url %>">
+        <fieldset>
+            <legend>add &quot;open in&quot; link for</legend>
+            <input type="checkbox" value="1" name="alpha"
+            <%= if @alpha == "1" do %> checked <% end %> >alpha
+            <%= if @alpha == "1" do %>*<% end %><br>
+
+            <input type="checkbox" value="1" name="felix"
+            <%= if @felix == "1" do %> checked <% end %> >felix
+            <%= if @felix == "1" do %>*<% end %><br>
+
+            <input type="checkbox" value="1" name="riposte"
+            <%= if @riposte == "1" do %> checked <% end %> >riposte
+            <%= if @riposte == "1" do %>*<% end %><br>
+
+            <input type="checkbox" value="1" name="happy"
+            <%= if @happy == "1" do %> checked <% end %> >hAppy
+            <%= if @happy == "1" do %>*<% end %><br>
+
+        </fieldset>
+        <p><small>*currently included in the displayed url</small></p>
+        <div style="float:right;">
+        <input type="submit" value="update">
+        </div>
+        </form>
+    </div>
+    <div class="footer">
+    <p>
+        For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
+        <a href="https://alpha.app.net/chrifpa">@chrifpa</a>&nbsp;&bull;&nbsp;
+        <a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
+    </p>
+    </div>
     </body>
 </html>
