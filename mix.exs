@@ -22,6 +22,6 @@ defmodule Rake.Mixfile do
       { :dynamo, "0.1.0-dev", github: "elixir-lang/dynamo" },
       { :httpotion, github: "myfreeweb/httpotion" },
       { :jsex, github: "talentdeficit/jsex" },
-      { :readp, github: "chrifpa/readp"}  ]
+      { :parallel, github: "eproxus/parallel" } ]
   end
 end

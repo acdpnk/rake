@@ -5,6 +5,39 @@ defmodule FeedRouter do
     str |> to_string |> String.replace("&", "&amp;") |> String.replace("<", "&lt;") |> String.replace(">", "&gt;") |> String.replace("\"", "&quot;")
   end
 
+  defp parse(url, readability_key) do
+    unless url == nil do
+        line = 'https://readability.com/api/content/v1/parser?token=' ++ to_char_list(readability_key) ++ '&url=' ++ to_char_list(url)
+        IO.inspect(is_list line)
+        IO.inspect line
+        case :httpc.request line do
+            {:ok, {{_,_,'OK'}, _, resp}} ->
+                case JSEX.decode to_string(resp), [{:labels, :atom}] do
+                    {:ok, parsed}   -> {:ok, parsed[:title], parsed[:content]}
+                    _ -> {}
+                end
+            _ -> {}
+
+        end
+      end
+  end
+
+  def parse_multiple(itemlist, readability_key) do
+      :inets.start
+      :ssl.start
+      items = Parallel.map itemlist, fn item ->
+          case parse item[:link], readability_key do
+              {:ok, title, content} ->
+                  [id: item[:id], title: xml_quote(title), original_post: xml_quote(item[:original_post]), summary: xml_quote("<hr>" <> content), link: xml_quote(item[:link]), clients: item[:clients]]
+              _ -> []
+          end
+      end
+      case items do
+        :error -> :error
+        list   -> {:ok, list}
+      end
+  end
+
   prepare do
     # Pick which parts of the request you want to fetch
     # You can comment the line below if you don't need
@@ -19,6 +52,7 @@ defmodule FeedRouter do
               case JSEX.decode config_json, [{:labels, :atom}] do
                   {:ok, config} ->
                       callback_url = config[:callback_url]
+                      readability_key = config[:readability_key]
                   _ ->
                       :error
               end
@@ -28,7 +62,7 @@ defmodule FeedRouter do
 
     HTTPotion.start
     token = conn.params[:token]
-    resp = HTTPotion.get "https://alpha-api.app.net/stream/0/posts/stream?count=100&access_token=" <> token
+    resp = HTTPotion.get "https://alpha-api.app.net/stream/0/posts/stream?count=50&access_token=" <> token
     posts = JSEX.decode!(resp.body, [{:labels, :atom}])[:data]
 
     resp = HTTPotion.get "https://alpha-api.app.net/stream/0/users/me?access_token=" <> token
@@ -47,15 +81,17 @@ defmodule FeedRouter do
     items = lc post inlist posts do
         item = []
 
-        title = "via @" <> post[:user][:username]
-        title = xml_quote title
-        item = item ++ [title: title]
-
         url = (Enum.at post[:entities][:links], 0)[:url]
-        url = xml_quote url
+
         item = item ++ [link: url]
 
-        summary = post[:html]
+        item = item ++ [id: post[:id]]
+
+        original_post = "<strong>" <> post[:user][:username] <> "</strong>: " <> post[:html]
+        item = item ++ [original_post: original_post]
+
+        summary = ""
+        item = item ++ [summary: summary]
 
         clients = []
 
@@ -79,17 +115,15 @@ defmodule FeedRouter do
           clients = clients ++ [[name: "hAppy", link: happy_link]]
         end
 
-
         item = item ++ [clients: clients]
-
-        summary = xml_quote summary
-        item = item ++ [summary: summary]
 
         cond do
           url != "" -> item
           true -> nil
         end
-    end
+        end
+
+    {:ok, items} = parse_multiple items, readability_key
 
     conn = conn.assign(:items, items)
     conn = conn.assign(:channel_title, channel_title)
