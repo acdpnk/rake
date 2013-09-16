@@ -6,17 +6,18 @@
   <link><%= @channel_link %></link>
   <description><%= @channel_summary %></description>
   <%= lc item inlist @items do %>
-  <%= if item != nil do %>
+  <%= if item != nil and item != [] do %>
   <item>
-    <title><%= item[:title] %></title>
+    <title>&lt;p&gt;<%= item[:title] %>&lt;/p&gt;</title>
     <link><%= item[:link] %></link>
     <description>
-      <%= item[:summary] %>
+      &lt;p&gt;<%= item[:original_post] %>&lt;/p&gt;
       <%= lc client inlist item[:clients] do %>
         &lt;p&gt; open post in
         &lt;a href=&quot;<%= client[:link] %>&quot;&gt;<%= client[:name] %>&lt;/a&gt;
         &lt;/p&gt;
       <% end %>
+      &lt;p&gt;<%= item[:summary] %>&lt;/p&gt;
     </description>
   </item>
   <% end %>
