@@ -28,7 +28,7 @@ defmodule FeedRouter do
       items = Parallel.map itemlist, fn item ->
           case parse item[:link], readability_key do
               {:ok, title, content} ->
-                  [id: item[:id], title: xml_quote(title), original_post: xml_quote(item[:original_post]), summary: xml_quote("<hr><h1>" <> title <> "</h1>" <> content), link: xml_quote(item[:link]), clients: item[:clients]]
+                  [id: item[:id], title: xml_quote(title), original_post: xml_quote(item[:original_post]), summary: xml_quote("<hr><br><h1>" <> title <> "</h1><br>" <> content), link: xml_quote(item[:link]), clients: item[:clients]]
               _ -> []
           end
       end
