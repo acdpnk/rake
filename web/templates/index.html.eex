@@ -2,7 +2,6 @@
 <html>
 <head>
   <title><%= @title %></title>
-  <link rel="shortcut icon" href="/static/favicon.ico" />
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600&subset=latin-ext' rel='stylesheet' type='text/css'>
   <style>
     .options{
@@ -57,7 +56,7 @@
       <a href="https://alpha.app.net/chrifpa">@chrifpa</a>&nbsp;&bull;&nbsp;
       <a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
   <div class="uber-badge">
-    <a href="https://uberspace.de/"><img src="http://hackmops.de/badge-white.png"></a>
+    <a href="https://uberspace.de/"><img src="https://chrifpa.cetus.uberspace.de/badge-white.png"></a>
   </div>
   </p>
   </div>

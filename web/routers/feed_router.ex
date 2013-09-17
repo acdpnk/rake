@@ -87,7 +87,11 @@ defmodule FeedRouter do
 
         item = item ++ [id: post[:id]]
 
-        original_post = "<strong>" <> post[:user][:username] <> "</strong>: " <> post[:html]
+        if (post[:user][:username] != nil) and (post[:html] != nil) do
+          original_post = "<strong>" <> post[:user][:username] <> ":</strong> " <> post[:html]
+        else
+          original_post = ""
+        end
         item = item ++ [original_post: original_post]
 
         summary = ""
