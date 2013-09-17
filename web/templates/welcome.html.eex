@@ -4,7 +4,9 @@
         <title>welcome</title>
     </head>
 
-    <style>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600&subset=latin-ext' rel='stylesheet' type='text/css'>
+
+  <style>
     .options{
         margin:auto;
         width:280px;
@@ -20,12 +22,27 @@
         position:fixed;
         bottom:0;
         left:0;
+        font-size:small;
     }
 
     h2{
         padding-left:5px
     }
-    </style>
+    .uber-badge{
+        float:right;
+        z-index:2;
+        position:fixed;
+        bottom:5px;
+        right:3%;
+    }
+    body{
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size:1.2em;
+    }
+    .adn-button{
+      width:70%;
+    }
+  </style>
 
     <body>
 	<h3 style="text-align:center">
@@ -68,12 +85,15 @@
         </div>
         </form>
     </div>
-    <div class="footer">
-    <p>
-        For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
-        <a href="https://alpha.app.net/chrifpa">@chrifpa</a>&nbsp;&bull;&nbsp;
-        <a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
-    </p>
-    </div>
+  <div class="footer">
+  <p>
+      For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
+      <a href="https://alpha.app.net/chrifpa">@chrifpa</a>&nbsp;&bull;&nbsp;
+      <a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
+  <div class="uber-badge">
+    <a href="https://uberspace.de/"><img src="http://hackmops.de/badge-white.png"></a>
+  </div>
+  </p>
+  </div>
     </body>
 </html>
