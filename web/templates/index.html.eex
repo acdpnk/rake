@@ -20,6 +20,7 @@
         bottom:0;
         left:0;
         font-size:small;
+        float:inherit;
         z-index:-1;
     }
 
@@ -38,7 +39,6 @@
       font-size:1.2em;
     }
     .adn-button{
-      width:70%;
     }
   </style>
 </head>
