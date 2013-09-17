@@ -43,7 +43,6 @@
       font-size:1.2em;
     }
     .adn-button{
-      width:70%;
     }
   </style>
 
