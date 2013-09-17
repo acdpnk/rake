@@ -3,6 +3,44 @@
 <head>
   <title><%= @title %></title>
   <link rel="shortcut icon" href="/static/favicon.ico" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600&subset=latin-ext' rel='stylesheet' type='text/css'>
+  <style>
+    .options{
+        margin:auto;
+        width:280px;
+        padding:5px 20px 30px;
+        background-color:#C9BDC1;
+    }
+
+    .footer{
+        margin:auto;
+        width:100%;
+        background-color:#D0D0D0;
+        text-align:center;
+        position:fixed;
+        bottom:0;
+        left:0;
+        font-size:small;
+    }
+
+    h2{
+        padding-left:5px
+    }
+    .uber-badge{
+        float:right;
+        z-index:2;
+        position:fixed;
+        bottom:5px;
+        right:3%;
+    }
+    body{
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size:1.2em;
+    }
+    .adn-button{
+      width:70%;
+    }
+  </style>
 </head>
 <body>
   <h3 style="text-align:center">rake alpha</h3>
@@ -12,7 +50,16 @@
   </p>
   <p style="text-align:center">
     <a href='https://account.app.net/oauth/authenticate?client_id=<%= @client_id%>&response_type=code&redirect_uri=<%= @callback_url %>/welcome&scope=stream' class='adn-button' data-type='authorize_v2' data-width="145" data-height="22" >Authorize with App.net</a><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script><br>
-	An App.net account is required to use rake. You can create an account and sign in by clicking this button.
   </p>
+  <div class="footer">
+  <p>
+      For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
+      <a href="https://alpha.app.net/chrifpa">@chrifpa</a>&nbsp;&bull;&nbsp;
+      <a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
+  <div class="uber-badge">
+    <a href="https://uberspace.de/"><img src="http://hackmops.de/badge-white.png"></a>
+  </div>
+  </p>
+  </div>
 </body>
 </html>
