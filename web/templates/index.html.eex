@@ -51,7 +51,7 @@
     <a href='https://account.app.net/oauth/authenticate?client_id=<%= @client_id%>&response_type=code&redirect_uri=<%= @callback_url %>/welcome&scope=stream' class='adn-button' data-type='authorize_v2' data-width="145" data-height="22" >Authorize with App.net</a><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));</script><br>
   </p>
   <div class="footer">
-  <p>
+  <p style="padding:0px 5cm;">
       For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
       <a href="https://alpha.app.net/chrifpa">@chrifpa</a>&nbsp;&bull;&nbsp;
       <a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>

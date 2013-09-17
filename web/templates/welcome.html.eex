@@ -8,6 +8,7 @@
 
   <style>
     .options{
+        border-radius:5%;
         margin:auto;
         width:280px;
         padding:5px 20px 30px;
@@ -23,6 +24,7 @@
         bottom:0;
         left:0;
         font-size:small;
+        float:inherit;
     }
 
     h2{
@@ -86,7 +88,7 @@
         </form>
     </div>
   <div class="footer">
-  <p>
+  <p style="padding:0px 5cm;">
       For support, questions, suggestions and critique contact me on <a href="app.net">app.net</a> or shoot me an email:<br>
       <a href="https://alpha.app.net/chrifpa">@chrifpa</a>&nbsp;&bull;&nbsp;
       <a href="mailto:chrifpa@gmail.com?subject=rake support">chrifpa@gmail.com</a>
