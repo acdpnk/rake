@@ -4,7 +4,7 @@
   <title><%= @title %></title>
   <style>
     .options{
-        border-radius:15%;
+        border-radius:35px;
         margin:auto;
         width:280px;
         padding:5px 20px 30px;
@@ -56,6 +56,14 @@
     @media only screen and (max-width: 720px){
         .footer-text{
           padding-left:5%;
+        }
+    }
+    @media only screen and (max-height: 520px){
+        .footer{
+            position:relative;
+        }
+        .uber-badge{
+            display:none;
         }
     }
   </style>

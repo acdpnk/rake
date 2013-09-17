@@ -4,9 +4,15 @@
         <title>welcome</title>
     </head>
 
+   <script type="text/javascript">
+     //<![CDATA[
+      document.write('<style type="text/css">.hide-on-script{display:none}</style>');
+     //]]>
+    </script>
+
   <style>
     .options{
-        border-radius:15%;
+        border-radius:35px;
         margin:auto;
         width:280px;
         padding:5px 20px 30px;
@@ -60,6 +66,14 @@
           padding-left:5%;
         }
     }
+    @media only screen and (max-height: 520px){
+        .footer{
+            position:relative;
+        }
+        .uber-badge{
+            display:none;
+        }
+    }
   </style>
 
     <body>
@@ -81,24 +95,29 @@
         <fieldset>
             <legend>add &quot;open in&quot; link for</legend>
             <input type="checkbox" value="1" name="alpha"
+            onchange='this.form.submit()'
             <%= if @alpha == "1" do %> checked <% end %> >alpha
-            <%= if @alpha == "1" do %>*<% end %><br>
+            <%= if @alpha == "1" do %><noscript>*</noscript><% end %><br>
 
             <input type="checkbox" value="1" name="felix"
+            onchange='this.form.submit()'
             <%= if @felix == "1" do %> checked <% end %> >felix
-            <%= if @felix == "1" do %>*<% end %><br>
+            <%= if @felix == "1" do %><noscript>*</noscript><% end %><br>
 
             <input type="checkbox" value="1" name="riposte"
+            onchange='this.form.submit()'
             <%= if @riposte == "1" do %> checked <% end %> >riposte
-            <%= if @riposte == "1" do %>*<% end %><br>
+            <%= if @riposte == "1" do %><noscript>*</noscript><% end %><br>
 
             <input type="checkbox" value="1" name="happy"
+            onchange='this.form.submit()'
             <%= if @happy == "1" do %> checked <% end %> >hAppy
-            <%= if @happy == "1" do %>*<% end %><br>
+            <%= if @happy == "1" do %><noscript>*</noscript><% end %><br>
 
         </fieldset>
-        <p><small>*currently included in the displayed url</small></p>
-        <div style="float:right;margin-right:10%;margin-bottom:5%">
+
+        <p><small><noscript>*currently included in the displayed url</noscript></small></p>
+        <div class="hide-on-script" style="float:right;margin-right:10%;margin-bottom:5%">
         <input type="submit" value="update">
         </div>
         </form>
