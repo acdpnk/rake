@@ -25,6 +25,7 @@
         left:0;
         font-size:small;
         float:inherit;
+        z-index:-1;
     }
 
     h2{
